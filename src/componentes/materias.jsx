@@ -1,23 +1,29 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import "../estilos/estilosMatrias.css"
 import { Analisis1 } from './Analisis1';
+
+
 export const Materias = () =>{
-        
+
+    const[claseMateria,setClaseMateria] = useState()
+
+
     const consultaEStado = (estado )=>{
         
-
-        if(estado === 1){
-            console.log(estado)
-        }else{
-            console.log("nose")
-        }
         
 
+       
+        
+        
     
     }
+
+    console.log()
     return(    
         <div className='contendorMaterias'>
-            <Analisis1  consultarEstado={(estado)=>consultaEStado(estado) }  />
+           <div className={claseMateria}>
+           <Analisis1  consultarEstado={(estado)=>consultaEStado(estado) }  />
+           </div> 
             
         </div>
     );
