@@ -9,7 +9,7 @@ export const Correlativas = () =>{
         <div>
             <h1>Correlativas</h1>
             <AñosMaterias />
-
+            <AñosMaterias />
             <footer> SRI</footer>
         </div>
     );
