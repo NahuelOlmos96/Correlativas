@@ -1,8 +1,15 @@
 import React, {useState} from 'react';
+import { useEffect } from 'react';
     
-export const Analisis1 = (props) =>{
+export const Materias = (props) =>{
 
     const[claseMatria,setClaseMateria] = useState()
+    const[claseEstado,setClaseEstado] = useState("")
+
+
+
+
+
 
     const estado = (valor)=>{
         switch (valor){
@@ -17,8 +24,20 @@ export const Analisis1 = (props) =>{
                 break;
                 
             }
-
     }
+
+   
+
+    useEffect(()=>{
+        switch(props.estadomateria){
+            case 1 :
+                setClaseEstado("cursar")
+                break;
+            case 2 :
+                setClaseEstado("");
+                break;    
+       } 
+    },[claseEstado, props.estadomateria])
 
     return(
         <div>
@@ -26,8 +45,9 @@ export const Analisis1 = (props) =>{
             <button onClick={()=>{props.consultarEstado(2) || estado(2)}} >regular</button>
             <button onClick={()=>{props.consultarEstado(3) || estado(3)}} >no aprobada </button>
 
-           
-            <p className={claseMatria}>Analisis1</p>
+           <div className={claseEstado}>
+            <p className={claseMatria}>{props.materia }</p>
+            </div>
         </div>
     );
 } 

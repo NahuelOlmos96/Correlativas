@@ -1,5 +1,5 @@
 import React from 'react';
-import { Materias } from './materias';
+import { AñosMaterias } from './materias';
     
 export const Correlativas = () =>{
 
@@ -8,7 +8,7 @@ export const Correlativas = () =>{
     return(
         <div>
             <h1>Correlativas</h1>
-            <Materias />
+            <AñosMaterias />
 
             <footer> SRI</footer>
         </div>

@@ -1,30 +1,69 @@
-import React,{ useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import "../estilos/estilosMatrias.css"
-import { Analisis1 } from './Analisis1';
+import { Materias } from './Analisis1';
 
 
-export const Materias = () =>{
+export const AñosMaterias = () =>{
 
-    const[claseMateria,setClaseMateria] = useState()
+    const[analisis1,setAnalisis1] = useState()
+    const[algebra,setAlgebra] = useState()
+    const[analisis2,setAnalisis2] = useState()
 
 
-    const consultaEStado = (estado )=>{
-        
-        
-
-       
-        
-        
-    
+    const EstadoAnalisi1 = (estado )=>{
+        setAnalisis1(estado)    
     }
 
-    console.log()
+    const EstadoAlgebra = (estado )=>{
+        setAlgebra(estado)
+    }
+    
+    
+    
+        
+
+     
+
+    useEffect(() => {
+
+        if (analisis1 === 1 && algebra === 1){
+            setAnalisis2(1)       
+        }else if(analisis1 === 2 && algebra === 2){
+            setAnalisis2(1)
+        }else if(analisis1 === 1 && algebra ===2){
+            setAnalisis2(1)
+        }else if(analisis1 === 2 && algebra ===1){
+            setAnalisis2(1)
+        }else {
+            setAnalisis2(2)
+        }
+        
+        
+        
+    },[algebra, analisis1 ,analisis2] );
+   
+
+    
     return(    
         <div className='contendorMaterias'>
-           <div className={claseMateria}>
-           <Analisis1  consultarEstado={(estado)=>consultaEStado(estado) }  />
-           </div> 
+           
+            <Materias  
+                    consultarEstado={(estado)=>EstadoAnalisi1(estado)}
+                    materia = "analisis"
+                />
+
+            <Materias
+                consultarEstado={(estado)=>EstadoAlgebra(estado)}
+                materia = "algebra"
+                />
+            <Materias
+                consultarEstado={(estado)=>EstadoAnalisi2(estado)}
+                materia = "Analisis2"
+                estadomateria = {analisis2}
+                />
+
+        </div> 
             
-        </div>
+        
     );
 } 
