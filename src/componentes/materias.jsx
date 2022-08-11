@@ -1,69 +1,53 @@
-import React, { useState , useEffect} from 'react';
-import "../estilos/estilosMatrias.css"
-import { Materias } from './Analisis1';
+import React, {useState} from 'react';
+import { useEffect } from 'react';
+    
+export const Materias = (props) =>{
+
+    const[claseMatria,setClaseMateria] = useState()
+    const[claseEstado,setClaseEstado] = useState("")
 
 
-export const AñosMaterias = () =>{
-
-    const[analisis1,setAnalisis1] = useState()
-    const[algebra,setAlgebra] = useState()
-    const[analisis2,setAnalisis2] = useState()
 
 
-    const EstadoAnalisi1 = (estado )=>{
-        setAnalisis1(estado)    
+
+
+    const estado = (valor)=>{
+        switch (valor){
+            case 1 : 
+                setClaseMateria("aprobado");
+                break;
+            case 2 : 
+                setClaseMateria("regular");
+                break;
+            case 3 :
+                setClaseMateria("noAprobado");
+                break;
+                
+            }
     }
 
-    const EstadoAlgebra = (estado )=>{
-        setAlgebra(estado)
-    }
-    
-    
-    
-        
-
-     
-
-    useEffect(() => {
-
-        if (analisis1 === 1 && algebra === 1){
-            setAnalisis2(1)       
-        }else if(analisis1 === 2 && algebra === 2){
-            setAnalisis2(1)
-        }else if(analisis1 === 1 && algebra ===2){
-            setAnalisis2(1)
-        }else if(analisis1 === 2 && algebra ===1){
-            setAnalisis2(1)
-        }else {
-            setAnalisis2(2)
-        }
-        
-        
-        
-    },[algebra, analisis1 ,analisis2] );
    
 
-    
-    return(    
-        <div className='contendorMaterias'>
-           
-            <Materias  
-                    consultarEstado={(estado)=>EstadoAnalisi1(estado)}
-                    materia = "analisis"
-                />
+    useEffect(()=>{
+        switch(props.estadomateria){
+            case 1 :
+                setClaseEstado("cursar")
+                break;
+            case 2 :
+                setClaseEstado("");
+                break;    
+       } 
+    },[claseEstado, props.estadomateria])
 
-            <Materias
-                consultarEstado={(estado)=>EstadoAlgebra(estado)}
-                materia = "algebra"
-                />
-            <Materias
-                consultarEstado={(estado)=>EstadoAnalisi2(estado)}
-                materia = "Analisis2"
-                estadomateria = {analisis2}
-                />
+    return(
+        <div>
+            <button onClick={()=>{props.consultarEstado(1) || estado(1)}} >aprobada</button>
+            <button onClick={()=>{props.consultarEstado(2) || estado(2)}} >regular</button>
+            <button onClick={()=>{props.consultarEstado(3) || estado(3)}} >no aprobada </button>
 
-        </div> 
-            
-        
+           <div className={claseEstado}>
+            <p className={claseMatria}>{props.materia }</p>
+            </div>
+        </div>
     );
 } 

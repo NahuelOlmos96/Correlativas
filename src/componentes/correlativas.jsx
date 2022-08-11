@@ -1,5 +1,5 @@
 import React from 'react';
-import { AñosMaterias } from './materias';
+import { AñosMaterias } from './AñoMaterias';
     
 export const Correlativas = () =>{
 
