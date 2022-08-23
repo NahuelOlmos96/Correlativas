@@ -2,7 +2,7 @@ import React from 'react';
 
 import  {Materias}  from './materias';
 
-import { AñosMaterias } from './AñoMaterias';
+
 
     
 export const Correlativas = () =>{
@@ -15,9 +15,6 @@ export const Correlativas = () =>{
             <Materias />
 
             
-
-            <AñosMaterias />
-            <AñosMaterias />
 
             <footer> SRI</footer>
         </div>
