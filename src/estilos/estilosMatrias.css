@@ -14,5 +14,9 @@
 }
 
 .noAprobado{
-    background-color: rgb(255, 255, 255);
+    background: none;
+}
+
+.cursar{
+    background-color: brown;
 }
