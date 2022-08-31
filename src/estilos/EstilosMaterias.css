@@ -1,0 +1,15 @@
+.aprobado{
+    background-color: red;
+}
+
+.desaprobado{
+    background-color: none;
+}
+
+.regular{
+    background-color: chocolate;
+}
+
+.cursar{
+    background-color: yellow;
+}

@@ -1,23 +1,38 @@
 
+import "../estilos/EstilosMaterias.css"
 
 
 
-
-function Pueba({materia, valor1 , valor2, cambio}) {
+function Pueba({materia, cambio}) {
 
  
       
   return (
     <div className="App">
-      {materia.map((materias, index) =>(
-        <h1 key={index}>{materias.nombre}</h1>
-      )
+      {materia.map(function(materias, index){
+
+          materias.condiciones.map(function(con, index){
+            console.log(con)
+            console.log(con[index] + materias.estado)
+             if(con.index === materias.estado){
+                console.log("anda")
+             }
+          })
+
+
+        return( 
+    
+        <div key={index}>
+        <h1 className={materias.estado} >{materias.nombre}</h1>
+          <button onClick={() => cambio(materias.id, "aprobado")}>a</button>
+          <button onClick={() => cambio(materias.id, "regular")}>r</button>
+          
+        </div>)
+      }
       )}
 
-    <button onClick={() => cambio(valor1 , "fisica")}> boton poner valor 1 en fisica</button>
-    <button onClick={() => cambio(valor1, "algebra")}>boton poner valor 1 en algebras</button>
-    <button onClick={() => cambio(valor2, "matematicas")}>boton poner valor 2 en matematicas</button>
-    <button onClick={() => cambio(valor2, "ingles")}> boton poner valor 2 en ingles</button>
+    
+    
     
     </div>
   );

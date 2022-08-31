@@ -2,7 +2,7 @@ import React, {useState } from 'react';
 import './App.css';
 import Pueba from './componentes/prueba';
 
-import materias  from './materias'
+import materias  from './datos/materias'
 
 
 function App() {
@@ -10,23 +10,22 @@ function App() {
   const[materia,setMaterias] = useState(materias)
 
     
-  const valor1 = 1
-  const valor2 = 2
+  
         
-    console.log(materia)
+    
 
-      function cambio(num, nombreCambiar){
+      function cambio(num, estadoCambiar){
 
           const newArray = materia.map((comprovador)=>
             {
               if (comprovador.id === num){
-              comprovador.nombre = nombreCambiar;
+              comprovador.estado = estadoCambiar;
               
             }
             return comprovador
           })
           
-          console.log(newArray)
+          
           setMaterias(newArray)
         
       } 
@@ -38,9 +37,7 @@ function App() {
 
    
       
-      <Pueba cambio={cambio}
-       valor1={valor1}
-       valor2={valor2}
+      <Pueba cambio={cambio}   
        materia={materia}/>
     </div>
   );
